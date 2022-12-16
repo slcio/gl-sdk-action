@@ -69,7 +69,8 @@ cat feeds.conf.default
 ./scripts/feeds install -a
 echo CONFIG_ALL=y >.config
 make defconfig
-make ./package/feeds/githubaction/${PKGNAME}/{clean,compile}  V=s
+make menuconfig
+make ./package/feeds/githubaction/${PKGNAME}/compile V=s
 
 find bin -type f -exec ls -lh {} \;
 find bin -type f -name "*.ipk" -exec cp -f {} "${WORKDIR}" \; 
